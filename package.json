@@ -1,0 +1,12 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "description": "- изучение TypeScript по материалам purple-school - Чтобы проверить задания нужно:   - склонировать репозиторий: learn-typescript-theory,   - посмотреть историю коммитов и найти по необходимой теме,",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
