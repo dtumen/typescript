@@ -58,3 +58,43 @@ const skill: [number, string] = [1, 'Dev'];
 const arr: [number, string, ...boolean[]] = [1, 'JS', true, true]; // OK!
 ```
 
+### 6. Type of enums (перечисления):
+**enums** - тип данных в TypeScript, предназначенный для управления набором констант.
+    - `Enums` позволяют присвоить более понятные имена числовым или строковым значениям, обеспечивая лучшую читаемость и поддержку кода.
+```ts
+enum StatusCode {
+     SUCCESS = 1,
+     IN_PROCESS,
+     FAILED
+ }
+
+ const res = {
+     message: 'Платёж успешен',
+     statusCole: StatusCode.SUCCESS
+ }
+```
+После компиляции:
+```js
+var StatusCode;
+(function (StatusCode) {
+    StatusCode[StatusCode["SUCCESS" = 1] = "SUCESS"];
+    StatusCode[StatusCode["IN_PROCESS" = 2] = "IN_PROCESS"];
+    StatusCode[StatusCode["FAILED" = 3] = "FAILED"];
+}(StatusCode || StatusCode = {}));
+```
+- то есть вызывается `IIFE`, которая выполняет присвоение 
+- создаются обратные связи, с помощью которых можно обратиться как `StatusCode[1]` так и `StatusCode["SUCCESS"]`
+
+Когда используются `emuns`:
+- `Enums` полезны для определения набора допустимых значений, например, статусов ответов, ролей пользователей, направлений движения и др.
+- Важно при взаимодействии с системами, где требуется строгое соответствие конкретным значениям, исключая риск опечаток или ошибок.
+
+Константные enums:
+```ts
+const enum {
+    ADMIN,
+    USER
+}
+```
+- в этом случае не вызывается функция `IIFE`, а просто создаётся `константа`;
+
