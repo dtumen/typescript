@@ -18,7 +18,7 @@
 
  // функция, аргументами которой мы хотим видеть только значения StatusCode:
  function action(status: StatusCode) {
-
+    // ...
  }
 
  // admin role:
