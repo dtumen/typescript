@@ -17,6 +17,7 @@ const res = {
 };
 // функция, аргументами которой мы хотим видеть только значения StatusCode:
 function action(status) {
+    // ...
 }
 // admin role:
 var Roles;
@@ -24,6 +25,3 @@ var Roles;
     Roles[Roles["ADMIN"] = 0] = "ADMIN";
     Roles[Roles["USER"] = 1] = "USER";
 })(Roles || (Roles = {}));
-
-
-
