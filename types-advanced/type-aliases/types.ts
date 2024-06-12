@@ -1,4 +1,4 @@
-// 1:
+// 1. Объявление type:
 type UserT = {
     name: string
     age: number
@@ -11,7 +11,7 @@ const user3: UserT = {
     skills: ['js', 'html']
 }
 
-// 2. Intersection:
+// 2. Intersection (&):
 type RoleT = {
     id: number
 }
@@ -25,7 +25,7 @@ let newUser: UserWithRole = {
     skills: ['css', 'react'],
 }
 
-// 3:
+// 3. &:
 type MonitorType = {
     name: string
     year: number

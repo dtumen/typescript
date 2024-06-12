@@ -1,4 +1,4 @@
-// 1:
+// 1. Объявление interface:
 interface User { // => без "=" !
     name: string
     age: number
@@ -11,7 +11,7 @@ let user4: User = {
     scores: [25, 30, 44]
 }
 
-// 2:
+// 2. Intersection interfaces with "extends":
 interface Book {
     id: number
     title: string
