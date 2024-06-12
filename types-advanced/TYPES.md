@@ -24,9 +24,90 @@
 
 
 
-### Type Aliases 
+### Type Aliases
+Объявляем с помозщью ключевого слова `type NameType = ...`;
 
+-  при использовании `type Aliases` можно использовать **Intersection of types** или `пересечение типов`, с помощью `&`;
 
+**Intersection** - это механизм, который позволяет нам использовать несколько типов как единое целое.
+- пересечение типов указывается с помощью оператора - `&`.
+
+Пример 1. Использование **Intersection** для объединения нескольких **type Aliases**:
+```ts
+type UserType = {
+    name: string
+    age: number
+    skills: string[]
+}
+
+type Role = {
+    id: number
+}
+
+type UserWithRoleType = UserType & Role; // ==> Interserction types with &!
+
+const user: UserWithRoleType = {
+    id: 1,
+    name: 'John',
+    age: 29,
+    skills: ['cook', 'chess'],
+}
+```
+- если в типах есть одинаковые поля, то использование `&` может привести к неоднозначным результатам:
+```ts
+type MonitorType = {
+    name: string
+    year: number
+}
+
+type ManufacturerType = {
+    name: "Logitech"
+    id: number
+}
+
+type MonitorWithManufacturerType = MonitorType & ManufacturerType; // => ?
+
+const monitor: MonitorWithManufacturerType = {
+    name: "Logitech",
+    id: 2,
+    year: 1995,
+}
+```
+
+### Interfaces
+**Interface** - альтернативный способ описания объектов.
+
+Пример 1. Объявление interface:
+```ts
+interface User { // => без "=" !
+    name: string
+    age: number
+    scores: number[]
+}
+```
+- при объявлении не используем знак `=`
+
+Пример 2. Как объединять interfaces:
+```ts
+interface Book {
+    id: number
+    title: string
+    author: string
+    pages: number
+}
+
+interface Student {
+    studentID: number
+}
+
+interface BookHasStudent extends Student, Book {
+    dateReturn: string
+}
+```
+
+Отличие `type` от `interface`:
+- чтобы объединить несколько `type` мы используем `&`, а для `interface` - `extends`
+- 
 
 
 
