@@ -35,3 +35,21 @@ const book: BookHasStudent = {
     studentID: 1124,
     dateReturn: '25.06.2022',
 }
+
+// 3. Merge definition:
+interface House {
+    houseId: number
+    country: string
+}
+
+interface House {
+    city: string
+    house: number
+}
+
+const house1: House = {
+    houseId: 1,
+    country: "Russia",
+    city: 'Moscow',
+    house: 56
+}
