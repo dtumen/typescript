@@ -35,3 +35,26 @@
   console.log(a.toUpperCase()); // => err: Property 'toUpperCase' does not exist on type 'void'.
 ```
 - со значением переменной `a` нельзя никак взаимодействовать из-за того, что у неё тип `void`
+
+
+### `unknown`
+Чем отличается от `any`?
+- предоставляет большую строгость и безопасность типов, потому что требует явного приведения или проверки типов перед использованием.
+
+Как работать с `unknown`:
+- чтобы корректно работать с `unknown` нужно сделать проверку на тип,
+
+Где используется:
+- в блоке `try/catch`, тип ошибки `err` является `unknown`:
+```ts
+async function getData() {
+    try {
+        await fetch('')
+    } catch (error) {
+        if (error instanceof Error) {
+            console.log(error.message);
+        }
+    }
+}
+```
+- проверяем `error`
