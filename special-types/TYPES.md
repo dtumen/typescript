@@ -62,11 +62,30 @@ async function getData() {
 ### `Type Guard`
 
 >[!NOTE]
->**TypeGuards** - это механизмы в TypeScript, позволяющие уточнить типы в условных блоках кода, так чтобы TypeScript понимал, какой тип данных используется.
+>**TypeGuards** - это механизмы в TypeScript, позволяющие `уточнить типы в **условных блоках кода(if)**`, так чтобы TypeScript понимал, какой тип данных используется.
 - Это позволяет более безопасно работать с разными типами данных в одной области видимости. 
 
 Как создать:
+```ts
+function isAdmin(user: User | Admin): user is Admin {
+    return 'role' in user
+}
+```
+- функция `isAdmin` - `typeGuard`, который проверяет на то, является ли `user` типом `Admin`
+- проверяет по наличию свойства `role` с помощью оператора `in`
+- возвращает `user is Admin`
 
+Дальнейшее использование:
+```ts
+function setRole(user: Admin | User) {
+    if (isAdmin(user)) {
+        user.role = '0';
+    } else {
+        throw new Error('user is not an admin')
+    }
+}
+```
+- использовали ранее написанный `TypeGuard` в условной конструкции `if(isAdmin)`
 
 >[!TIP]
 >- 

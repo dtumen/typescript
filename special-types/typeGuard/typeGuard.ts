@@ -5,7 +5,7 @@ function isString(x: string | number): x is string {
     return typeof x === 'string'
 }
 
-// используем его в функции
+// используем его в функции:
 function logIdD1(id: number | string) {
     if (isString(id)) {
         console.log(id);
@@ -20,18 +20,17 @@ interface User1 {
     email: string
     login: string
 }
+interface Admin {
+    name: string
+    role: string
+}
 
 const user10: User1 = {
     name: 'John',
     email: 'Doe@mail.ru',
     login: 'JD'
 }
-
-interface Admin {
-    name: string
-    role: string
-}
-
+// Создаём typeGuard
 function isAdmin(user: User1 | Admin): user is Admin {
     return 'role' in user;
 }
