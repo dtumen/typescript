@@ -24,3 +24,32 @@ getSplitHalf(arrStrings); // => ["1", "2"]
 // Можно записать как:
 getSplitHalf<number>(arrNumbers);
 getSplitHalf<string>(arrStrings);
+
+// 3. Типизация logLine с помощью generic:
+interface ILogline<T> {
+    timeStamp: Date;
+    data: T
+}
+
+const logLine: ILogline<{ a: number }> = {
+    timeStamp: new Date(),
+    data: {
+        a: 1, // типизируем с помощью generic
+    }
+}
+
+// 4. Использование extends с generic:
+interface Vehicle {
+    run: number;
+}
+
+function kmToMiles<T extends Vehicle>(vehicle: T): T {
+    vehicle.run = vehicle.run / 0.62;
+    return vehicle;
+}
+
+let vehicle1: Vehicle = {
+    run: 5,
+}
+
+kmToMiles(vehicle1);
