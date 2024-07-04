@@ -56,7 +56,7 @@ const logLine: ILogLine<{ a: number }> = {
 }
 ```
 
-Пример 4. Использование ключевого слова `extends` с `generic` при работе с классами, интерфейсами и типами.
+Пример 4. Использование ключевого слова `extends` с `generic` при работе с классами, интерфейсами и типами:
 ```generics.ts
 interface Vehicle {
 run: number;
